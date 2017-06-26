@@ -2,6 +2,7 @@ require 'oauth2'
 require 'httparty'
 require 'json'
 require 'pry'
+require 'base64'
 
 class TwitterTest
   include HTTParty
