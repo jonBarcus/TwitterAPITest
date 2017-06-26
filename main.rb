@@ -8,13 +8,13 @@ class TwitterTest
   include HTTParty
   include OAuth2
 
-  @consumer_key = ENV["TWITTER_LOCAL_API_KEY"]
-  @consumer_secret = ENV["TWITTER_LOCAL_API_SECRET"]
+  @@consumer_key = ENV["TWITTER_LOCAL_API_KEY"]
+  @@consumer_secret = ENV["TWITTER_LOCAL_API_SECRET"]
 
   def initialize
     binding.pry
 
-    credentials = Base64.encode64("#{@consumer_key}:#{@consumer_secret}").gsub("\n",'')
+    credentials = Base64.encode64("#{@@consumer_key}:#{@@consumer_secret}").gsub("\n",'')
     url = "https://api.twitter.com/oauth2/token"
     body = "grant_type=client_credentials"
     headers = {
