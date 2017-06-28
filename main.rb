@@ -31,7 +31,7 @@ class TwitterTest
     date = date.strftime("%Y-%m-%d")
 
     api_auth_header = {"Authorization" => "Bearer #{bearer_token}"}
-    url = "https://api.twitter.com/1.1/search/tweets.json?q=#{search_topic}%20since:#{date}"
+    url = "https://api.twitter.com/1.1/search/tweets.json?q=#{search_topic}&since:#{date}&result_type=recent"
     @results = HTTParty.get(url, headers: api_auth_header)
     @array = []
     @results.each do |x|
